@@ -32,12 +32,13 @@ export const Register = () => {
     if (isError) {
       toast.error(message);
     }
+    dispatch(reset())
   }, [user, isLoading, isError, isSuccess, message]);
 
   return (
     <Box className={classes.registerMain}>
       <Box className={classes.signupCard}>
-        <Box className={classes.signupHeadding}>Signup Form</Box>
+        <Box className={classes.signupHeadding}>Signup</Box>
         <Formik
           initialValues={{ name: "", email: "", password: "" }}
           validationSchema={signupValidation}
