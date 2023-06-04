@@ -44,7 +44,7 @@ export const BestDeals = () => {
         <Grid key={product._id} item xs={12} sm={6} md={3}>
           <Card>
             <CardContent>
-              <ProductCard image={product?.image} name={product?.name}/>
+              <ProductCard image={product?.image} name={product?.name} price={product?.price}/>
             </CardContent>
           </Card>
         </Grid>

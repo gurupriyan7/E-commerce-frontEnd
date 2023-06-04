@@ -10,11 +10,10 @@ export const useStyles = makeStyles(() => ({
   },
   bestDeals: {
     height: '100%',
-    backgroundColor: 'green',
     marginTop:"2rem",
   },
   productCard:{
-      backgroundColor:"red",
+
       width:"8rem" ,
       padding:"2rem"   
   }

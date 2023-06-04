@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 
-export const ProductCard = ({ name,image }: any) => {
+export const ProductCard = ({ name,image,price }: any) => {
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -21,8 +21,7 @@ export const ProductCard = ({ name,image }: any) => {
           {name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+PRICE : ${price}
         </Typography>
       </CardContent>
       <CardActions>
