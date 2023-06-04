@@ -1,9 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { TextField, Button } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { register, reset } from "../../features/auth/authSlice";
-import { Box } from "../../utils/uiCore";
+import { Box ,TextField, Button} from "../../utils/uiCore";
 import { useStyles } from "./style";
 import { signupValidation } from "../../utils/formikValidation";
 import { RegisterFormData } from "./register.interface";
