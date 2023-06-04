@@ -6,8 +6,11 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { paths } from "../../../path/paths";
 
 export const ProductCard = ({ name,image,price }: any) => {
+const navigate = useNavigate()
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -25,7 +28,7 @@ PRICE : ${price}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="outlined" size="small">Add to Cart</Button>
+        <Button onClick={()=>navigate(paths.cart)} variant="outlined" size="small">Add to Cart</Button>
       </CardActions>
     </Card>
   );
