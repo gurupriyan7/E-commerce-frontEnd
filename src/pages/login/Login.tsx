@@ -7,18 +7,23 @@ import { useStyles } from "./style";
 import { signInValidation } from "../../utils/formikValidation";
 import { Dispatch, useEffect } from "react";
 import { paths } from "../../path/paths";
-import { toast } from "react-toastify";
+import { showToasterError } from "../../utils/showToaster";
+
+interface LoginData{
+  email:string,
+  password:string
+}
 
 export const Login = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   const dispatch: Dispatch<any> = useDispatch();
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
+  const { user, isLoading, isError, isSuccess, error } = useSelector(
     (state: any) => state?.auth
   );
 
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async (values: LoginData) => {
     dispatch(login(values));
   };
 
@@ -27,11 +32,11 @@ export const Login = () => {
       navigate(paths.home);
     }
     if (isError) {
-      toast.error(message);
+     showToasterError(error)
     }
 
     dispatch(reset())
-  }, [user, isLoading, isError, isSuccess, message]);
+  }, [user, isLoading, isError, isSuccess, error]);
 
   return (
     <Box className={classes.registerMain}>

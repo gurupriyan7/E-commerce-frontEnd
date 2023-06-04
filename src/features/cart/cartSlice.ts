@@ -1,29 +1,30 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import productService from './productService'
+import cartService from './cartService'
 import { errorMessage } from '../../utils/appUtils'
 
 const initialState = {
-  products: [],
+  cart: null,
   isError: false,
   isSuccess: false,
   isLoading: false,
-  message: '',
+  error:null
 }
 
-export const getProducts = createAsyncThunk(
-  'product/register',
+export const getUserCart = createAsyncThunk(
+  'cart/register',
   async (_data: any, thunkApi) => {
     try {
-      return await productService.getProducts()
+      return await cartService.getUserCart()
     } catch (error) {
       return thunkApi.rejectWithValue(errorMessage(error))
     }
   },
 )
 
-export const productsSlice = createSlice({
-  name: 'product',
+
+export const cartSlice = createSlice({
+  name: 'cart',
   initialState,
   reducers: {
     reset: (state: any) => {
@@ -35,23 +36,23 @@ export const productsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getProducts.pending, (state) => {
+      .addCase(getUserCart.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(getProducts.fulfilled, (state, action) => {
+      .addCase(getUserCart.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.products = action.payload
+        state.cart = action.payload
       })
-      .addCase(getProducts.rejected, (state, action: any) => {
+      .addCase(getUserCart.rejected, (state, action: any) => {
         state.isLoading = false
         state.isError = true
         state.isSuccess = false
-        state.message = action.payload
-        state.products = []
+        state.error = action.error
+        state.cart = null
       })
   },
 })
 
-export const { reset } = productsSlice.actions
-export default productsSlice.reducer
+export const { reset } = cartSlice.actions
+export default cartSlice.reducer

@@ -24,19 +24,9 @@ export const BestDeals = () => {
     if (isError) {
       toast.error(message);
     }
-    console.log(products, "product");
   }, [products, isLoading, isError, isSuccess, message]);
 
-  const cardData = [
-    { id: 1, title: "Card 1", content: "Lorem ipsum dolor sit amet." },
-    { id: 2, title: "Card 2", content: "Consectetur adipiscing elit." },
-    { id: 3, title: "Card 3", content: "Praesent at tellus molestie." },
-    { id: 4, title: "Card 4", content: "Nullam eget justo vitae." },
-    { id: 1, title: "Card 1", content: "Lorem ipsum dolor sit amet." },
-    { id: 2, title: "Card 2", content: "Consectetur adipiscing elit." },
-    { id: 3, title: "Card 3", content: "Praesent at tellus molestie." },
-    { id: 4, title: "Card 4", content: "Nullam eget justo vitae." },
-  ];
+
 
   return (
     <Grid container spacing={2}>

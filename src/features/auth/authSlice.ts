@@ -11,7 +11,8 @@ const initialState = {
   isError: false,
   isSuccess: false,
   isLoading: false,
-  message: '',
+ error:null
+  
 }
 
 export const register = createAsyncThunk(
@@ -61,7 +62,7 @@ export const authSlice = createSlice({
         state.isLoading = false
         state.isError = true
         state.isSuccess = false
-        state.message = action.payload
+        state.error = action.error
         state.user = null
       })
       .addCase(login.pending, (state) => {
@@ -76,7 +77,7 @@ export const authSlice = createSlice({
         state.isLoading = false
         state.isError = true
         state.isSuccess = false
-        state.message = action.payload
+        state.error = action.error
         state.user = null
       })
  

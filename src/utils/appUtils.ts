@@ -9,6 +9,10 @@ export const getLocalStorageItem = (key:string)=>{
   }
 }
 
+export const removeLocalStorage =async()=>{
+await localStorage.clear()
+}
+
 export const errorMessage = (error:any)=>{
   const message =
   error?.response?.data?.message || error?.message || error.toString()

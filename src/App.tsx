@@ -8,6 +8,7 @@ import { Home } from "./pages/home";
 import { Cart } from "./pages/cart/Cart";
 
 function App() {
+  
   return (
     <>
       <Router>
